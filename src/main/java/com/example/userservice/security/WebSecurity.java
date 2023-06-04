@@ -21,6 +21,7 @@ public class WebSecurity {
         http.headers().frameOptions().disable(); //h2-console 화면 정상 작동
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/users/**").permitAll()
+                .requestMatchers("/user-service/**").permitAll()
                 .requestMatchers(PathRequest.toH2Console()).permitAll()
         );
         return http.build();
